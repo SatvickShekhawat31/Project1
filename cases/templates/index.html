@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Driven Research Engine for commercial court</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1c1c1c; /* Matches the dark background */
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            text-align: center;
+            background-color: #333; /* Dark gray for the box */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            background-color: #222; /* Slightly darker for input field */
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+
+        .input-container textarea {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            resize: none; /* Prevent manual resizing */
+            min-height: 80px; /* Prevent shrinking too much */
+            max-width: 100%; /* Prevent horizontal overflow */
+            overflow: hidden; /* Hide overflow */
+            line-height: 1.4; /* For better text readability */
+            padding: 10px;
+            word-wrap: break-word; /* Ensures long words break instead of overflowing */
+        }
+
+        .submit-button {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .submit-button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Enter Your Text</h1>
+        <form method="POST" action="/inference/"> <!-- Use Django's CSRF and POST to submit -->
+            {% csrf_token %}
+            <div class="input-container">
+                <textarea name="input_text" placeholder="Type your message here..." oninput="autoResize(this)"></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to auto-resize the textarea (both horizontally and vertically)
+        function autoResize(textarea) {
+            // Reset the height to auto to calculate the correct size
+            textarea.style.height = 'auto';
+
+            // Set the height to the scrollHeight to adjust to the content
+            textarea.style.height = textarea.scrollHeight + 'px';
+
+            // Set the width to the scrollWidth to adjust to the content
+            textarea.style.width = Math.max(textarea.scrollWidth, 400) + 'px'; // Ensures a minimum width
+        }
+    </script>
+</body>
+</html>
