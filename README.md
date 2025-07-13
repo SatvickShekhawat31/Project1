@@ -31,16 +31,12 @@ cd Project1
 ```
 
 # Install dependencies:
-
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
+```
 
 # 📂 Project Structure
-bash
-Copy
-Edit
+```bash
 Project1/
 ├── data/                   # Data files
 ├── models/                 # Model files (large models are ignored)
