@@ -30,14 +30,14 @@ git clone https://github.com/SatvickShekhawat31/Project1.git
 cd Project1
 ```
 
-Install dependencies:
+# Install dependencies:
 
 bash
 Copy
 Edit
 pip install -r requirements.txt
 
-📂 Project Structure
+# 📂 Project Structure
 bash
 Copy
 Edit
